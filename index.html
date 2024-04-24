@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validation API</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Create Account</h1>
+      <form id="createAccount" novalidate>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required />
+        <span class="emailError"></span>
+
+        <label for="country">Country:</label>
+
+        <select name="country" id="country" required>
+          <option value=""></option>
+          <option value="USA">United States</option>
+          <option value="CA">Canada</option>
+          <option value="MX">Mexico</option>
+        </select>
+        <span class="countryError"></span>
+
+        <label for="zip">Zip Code:</label>
+        <input
+          type="text"
+          name="zip"
+          id="zip"
+          required
+          pattern="\d{5}"
+          minlength="5"
+        />
+        <span class="zipError"></span>
+
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          required
+          pattern="^(?=.*[^\w\s]).{8,}$"
+        />
+        <span class="passwordError error"></span>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input
+          type="password"
+          name="confirmPassword"
+          id="confirmPassword"
+          required
+        />
+        <span class="error confirmPasswordError"></span>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
